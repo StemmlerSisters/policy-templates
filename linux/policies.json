@@ -56,10 +56,6 @@
       "Allow": ["http://example.org/"],
       "AllowSession": ["http://example.edu/"],
       "Block": ["http://example.edu/"],
-      "Default": true | false,
-      "AcceptThirdParty": "always" | "never" | "from-visited",
-      "ExpireAtSessionEnd": true | false,
-      "RejectTracker": true | false,
       "Locked": true | false,
       "Behavior": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign",
       "BehaviorPrivateBrowsing": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign",
@@ -70,6 +66,7 @@
       "CIPHER_NAME": true | false,
     },
     "DisableDeveloperTools": true | false,
+    "DisableEncryptedClientHello": true | false,
     "DisableFeedbackCommands": true | false,
     "DisableFirefoxAccounts": true | false,
     "DisableFirefoxScreenshots": true | false,
@@ -190,6 +187,9 @@
                     "http://example.edu/"],
       "StartPage": "none" | "homepage" | "previous-session" | "homepage-locked"
     },
+    "HttpAllowlist": ["http://example.org",
+                       "http://example.edu"],
+    "HttpsOnlyMode": "allowed" | "disallowed" | "enabled" | "force_enabled",
     "InstallAddonsPermission": {
       "Allow": ["http://example.org/",
                 "http://example.edu/"],
@@ -225,7 +225,7 @@
     "NoDefaultBookmarks": true | false,
     "OfferToSaveLogins": true | false,
     "OfferToSaveLoginsDefault": true | false,
-    "OverrideFirstRunPage": "http://example.org".
+    "OverrideFirstRunPage": "http://example.org",
     "OverridePostUpdatePage": "http://example.org",
     "PasswordManagerEnabled": true | false,
     "PasswordManagerExceptions": ["https://example.org", "https://example.edu"],
@@ -275,6 +275,7 @@
       "Default": true | false,
       "Locked": true | false
     },
+    "PostQuantumKeyAgreementEnabled": true | false,
     "Preferences": {
       "accessibility.force_disabled": {
         "Value": 1,
@@ -291,6 +292,7 @@
     },
     "PrimaryPassword": true | false,
     "PrintingEnabled": true | false,
+    "PrivateBrowsingModeAvailability": 0 | 1 | 2,
     "PromptForDownloadLocation": true | false,
     "Proxy": {
       "Mode": "none" | "system" | "manual" | "autoDetect" | "autoConfig",
@@ -310,12 +312,9 @@
     "SanitizeOnShutdown": {
       "Cache": true | false,
       "Cookies": true | false,
-      "Downloads": true | false,
-      "FormData": true | false,
       "History": true | false,
       "Sessions": true | false,
       "SiteSettings": true | false,
-      "OfflineApps": true | false,
       "Locked": true | false
     },
     "SearchEngines": {
@@ -348,13 +347,14 @@
       "AccessKey": "S"
     },
     "StartDownloadsInTempDirectory": true | false,
+    "TranslateEnabled": true | false,
     "UserMessaging": {
-      "WhatsNew": true | false,
       "ExtensionRecommendations": true | false,
       "FeatureRecommendations": true | false,
       "UrlbarInterventions": true | false,
       "SkipOnboarding": true | false,
       "MoreFromMozilla": true | false,
+      "FirefoxLabs": true | false,
       "Locked": true | false
     },
     "UseSystemPrintDialog": true | false.,

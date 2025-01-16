@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<policyDefinitions revision="5.8" schemaVersion="1.0">
+<policyDefinitions revision="6.6" schemaVersion="1.0">
   <policyNamespaces>
     <target prefix="firefox" namespace="Mozilla.Policies.Firefox"/>
     <using prefix="Mozilla" namespace="Mozilla.Policies"/>
   </policyNamespaces>
-  <resources minRequiredRevision="5.8"/>
+  <resources minRequiredRevision="6.6"/>
   <supportedOn>
     <definitions>
       <definition name="UNSUPPORTED" displayName="$(string.UNSUPPORTED)"/>
@@ -68,12 +68,16 @@
       <definition name="SUPPORTED_FF122" displayName="$(string.SUPPORTED_FF122)"/>
       <definition name="SUPPORTED_FF123" displayName="$(string.SUPPORTED_FF123)"/>
       <definition name="SUPPORTED_FF124" displayName="$(string.SUPPORTED_FF124)"/>
+      <definition name="SUPPORTED_FF124_ONLY" displayName="$(string.SUPPORTED_FF124_ONLY)"/>
       <definition name="SUPPORTED_FF125" displayName="$(string.SUPPORTED_FF125)"/>
-      <definition name="SUPPORTED_FF126" displayName="$(string.SUPPORTED_FF126)"/>
-      <definition name="SUPPORTED_FF127" displayName="$(string.SUPPORTED_FF127)"/>
+      <definition name="SUPPORTED_FF126_ONLY" displayName="$(string.SUPPORTED_FF126_ONLY)"/>
+      <definition name="SUPPORTED_FF127_ONLY" displayName="$(string.SUPPORTED_FF127_ONLY)"/>
       <definition name="SUPPORTED_FF128" displayName="$(string.SUPPORTED_FF128)"/>
       <definition name="SUPPORTED_FF129" displayName="$(string.SUPPORTED_FF129)"/>
       <definition name="SUPPORTED_FF130" displayName="$(string.SUPPORTED_FF130)"/>
+      <definition name="SUPPORTED_FF130_ONLY" displayName="$(string.SUPPORTED_FF130_ONLY)"/>
+      <definition name="SUPPORTED_FF131" displayName="$(string.SUPPORTED_FF131)"/>
+      <definition name="SUPPORTED_FF136_ONLY" displayName="$(string.SUPPORTED_FF136_ONLY)"/>
     </definitions>
   </supportedOn>
   <categories>
@@ -165,6 +169,9 @@
       <parentCategory ref="firefox"/>
     </category>
     <category displayName="$(string.FirefoxSuggest_group)" name="FirefoxSuggest">
+      <parentCategory ref="firefox"/>
+    </category>
+    <category displayName="$(string.ContentAnalysis_group)" name="ContentAnalysis">
       <parentCategory ref="firefox"/>
     </category>
   </categories>
@@ -755,6 +762,16 @@
       <elements>
         <list id="List" key="Software\Policies\Mozilla\Firefox\DNSOverHTTPS\ExcludedDomains" valuePrefix=""/>
       </elements>
+    </policy>
+    <policy name="DNSOverHTTPS_Fallback" class="Both" displayName="$(string.DNSOverHTTPS_Fallback)" explainText="$(string.DNSOverHTTPS_Fallback_Explain)" key="Software\Policies\Mozilla\Firefox\DNSOverHTTPS" valueName="Fallback">
+      <parentCategory ref="DNSOverHTTPS"/>
+      <supportedOn ref="SUPPORTED_FF124"/>
+      <enabledValue>
+        <decimal value="1"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0"/>
+      </disabledValue>
     </policy>
     <policy name="DisableAppUpdate" class="Both" displayName="$(string.DisableAppUpdate)" explainText="$(string.DisableAppUpdate_Explain)" key="Software\Policies\Mozilla\Firefox" valueName="DisableAppUpdate">
       <parentCategory ref="firefox"/>
@@ -3682,6 +3699,16 @@
         <decimal value="0"/>
       </disabledValue>
     </policy>
+    <policy name="UserMessaging_FirefoxLabs" class="Both" displayName="$(string.UserMessaging_FirefoxLabs)" explainText="$(string.UserMessaging_FirefoxLabs)" key="Software\Policies\Mozilla\Firefox\UserMessaging" valueName="FirefoxLabs">
+      <parentCategory ref="UserMessaging"/>
+      <supportedOn ref="SUPPORTED_FF130_ONLY"/>
+      <enabledValue>
+        <decimal value="1"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0"/>
+      </disabledValue>
+    </policy>
     <policy name="UserMessaging_Locked" class="Both" displayName="$(string.UserMessaging_Locked)" explainText="$(string.UserMessaging_Locked_Explain)" key="Software\Policies\Mozilla\Firefox\UserMessaging" valueName="Locked">
       <parentCategory ref="UserMessaging"/>
       <supportedOn ref="SUPPORTED_FF75"/>
@@ -4147,6 +4174,239 @@
     <policy name="PrintingEnabled" class="Both" displayName="$(string.PrintingEnabled)" explainText="$(string.PrintingEnabled_Explain)" key="Software\Policies\Mozilla\Firefox" valueName="PrintingEnabled">
       <parentCategory ref="firefox"/>
       <supportedOn ref="SUPPORTED_FF120"/>
+      <enabledValue>
+        <decimal value="1"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0"/>
+      </disabledValue>
+    </policy>
+    <policy name="ManualAppUpdateOnly" class="Both" displayName="$(string.ManualAppUpdateOnly)" explainText="$(string.ManualAppUpdateOnly_Explain)" key="Software\Policies\Mozilla\Firefox" valueName="ManualAppUpdateOnly">
+      <parentCategory ref="firefox"/>
+      <supportedOn ref="SUPPORTED_FF88"/>
+      <enabledValue>
+        <decimal value="1"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0"/>
+      </disabledValue>
+    </policy>
+    <policy name="AllowFileSelectionDialogs" class="Both" displayName="$(string.AllowFileSelectionDialogs)" explainText="$(string.AllowFileSelectionDialogs_Explain)" key="Software\Policies\Mozilla\Firefox" valueName="AllowFileSelectionDialogs">
+      <parentCategory ref="firefox"/>
+      <supportedOn ref="SUPPORTED_FF124_ONLY"/>
+      <enabledValue>
+        <decimal value="1"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0"/>
+      </disabledValue>
+    </policy>
+    <policy name="AutofillAddressEnabled" class="Both" displayName="$(string.AutofillAddressEnabled)" explainText="$(string.AutofillAddressEnabled_Explain)" key="Software\Policies\Mozilla\Firefox" valueName="AutofillAddressEnabled">
+      <parentCategory ref="firefox"/>
+      <supportedOn ref="SUPPORTED_FF125"/>
+      <enabledValue>
+        <decimal value="1"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0"/>
+      </disabledValue>
+    </policy>
+    <policy name="AutofillCreditCardEnabled" class="Both" displayName="$(string.AutofillCreditCardEnabled)" explainText="$(string.AutofillCreditCardEnabled_Explain)" key="Software\Policies\Mozilla\Firefox" valueName="AutofillCreditCardEnabled">
+      <parentCategory ref="firefox"/>
+      <supportedOn ref="SUPPORTED_FF125"/>
+      <enabledValue>
+        <decimal value="1"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0"/>
+      </disabledValue>
+    </policy>
+    <policy name="TranslateEnabled" class="Both" displayName="$(string.TranslateEnabled)" explainText="$(string.TranslateEnabled_Explain)" key="Software\Policies\Mozilla\Firefox" valueName="TranslateEnabled">
+      <parentCategory ref="firefox"/>
+      <supportedOn ref="SUPPORTED_FF126_ONLY"/>
+      <enabledValue>
+        <decimal value="1"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0"/>
+      </disabledValue>
+    </policy>
+    <policy name="DisableEncryptedClientHello" class="Both" displayName="$(string.DisableEncryptedClientHello)" explainText="$(string.DisableEncryptedClientHello_Explain)" key="Software\Policies\Mozilla\Firefox" valueName="DisableEncryptedClientHello">
+      <parentCategory ref="firefox"/>
+      <supportedOn ref="SUPPORTED_FF127_ONLY"/>
+      <enabledValue>
+        <decimal value="1"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0"/>
+      </disabledValue>
+    </policy>
+    <policy name="PostQuantumKeyAgreementEnabled" class="Both" displayName="$(string.PostQuantumKeyAgreementEnabled)" explainText="$(string.PostQuantumKeyAgreementEnabled_Explain)" key="Software\Policies\Mozilla\Firefox" valueName="PostQuantumKeyAgreementEnabled">
+      <parentCategory ref="firefox"/>
+      <supportedOn ref="SUPPORTED_FF127_ONLY"/>
+      <enabledValue>
+        <decimal value="1"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0"/>
+      </disabledValue>
+    </policy>
+    <policy name="HttpsOnlyMode" class="Both" displayName="$(string.HttpsOnlyMode)" explainText="$(string.HttpsOnlyMode_Explain)" key="Software\Policies\Mozilla\Firefox" presentation="$(presentation.HttpsOnlyMode)">
+      <parentCategory ref="firefox"/>
+      <supportedOn ref="SUPPORTED_FF127_ONLY"/>
+      <elements>
+        <enum id="HttpsOnlyMode" valueName="HttpsOnlyMode">
+          <item displayName="$(string.HttpsOnlyMode_Allowed)">
+            <value>
+              <string>allowed</string>
+            </value>
+          </item>
+          <item displayName="$(string.HttpsOnlyMode_Disallowed)">
+            <value>
+              <string>disallowed</string>
+            </value>
+          </item>
+          <item displayName="$(string.HttpsOnlyMode_Enabled)">
+            <value>
+              <string>enabled</string>
+            </value>
+          </item>
+          <item displayName="$(string.HttpsOnlyMode_ForceEnabled)">
+            <value>
+              <string>force_enabled</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="HttpAllowlist" class="Both" displayName="$(string.HttpAllowlist)" explainText="$(string.HttpAllowlist_Explain)" key="Software\Policies\Mozilla\Firefox\HttpAllowlist" presentation="$(presentation.List)">
+      <parentCategory ref="firefox"/>
+      <supportedOn ref="SUPPORTED_FF127_ONLY"/>
+      <elements>
+        <list id="List" key="Software\Policies\Mozilla\Firefox\HttpAllowlist" valuePrefix=""/>
+      </elements>
+    </policy>
+    <policy name="PrivateBrowsingModeAvailability" class="Both" displayName="$(string.PrivateBrowsingModeAvailability)" explainText="$(string.PrivateBrowsingModeAvailability_Explain)" key="Software\Policies\Mozilla\Firefox" presentation="$(presentation.PrivateBrowsingModeAvailability)">
+      <parentCategory ref="firefox"/>
+      <supportedOn ref="SUPPORTED_FF130"/>
+      <elements>
+        <enum id="PrivateBrowsingModeAvailability" valueName="PrivateBrowsingModeAvailability">
+          <item displayName="$(string.PrivateBrowsingModeAvailability_0)">
+            <value>
+              <decimal value="0"/>
+            </value>
+          </item>
+          <item displayName="$(string.PrivateBrowsingModeAvailability_1)">
+            <value>
+              <decimal value="1"/>
+            </value>
+          </item>
+          <item displayName="$(string.PrivateBrowsingModeAvailability_2)">
+            <value>
+              <decimal value="2"/>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="ContentAnalysis_AgentName" class="Both" displayName="$(string.ContentAnalysis_AgentName)" explainText="$(string.ContentAnalysis_AgentName_Explain)" key="Software\Policies\Mozilla\Firefox\ContentAnalysis" presentation="$(presentation.String)">
+      <parentCategory ref="ContentAnalysis"/>
+      <supportedOn ref="SUPPORTED_FF136_ONLY"/>
+      <elements>
+        <text id="String" valueName="AgentName"/>
+      </elements>
+    </policy>
+    <policy name="ContentAnalysis_AgentTimeout" class="Both" displayName="$(string.ContentAnalysis_AgentTimeout)" explainText="$(string.ContentAnalysis_AgentTimeout_Explain)" key="Software\Policies\Mozilla\Firefox\ContentAnalysis" presentation="$(presentation.Number)">
+      <parentCategory ref="ContentAnalysis"/>
+      <supportedOn ref="SUPPORTED_FF136_ONLY"/>
+      <elements>
+        <decimal id="Number" valueName="AgentTimeout"/>
+      </elements>
+    </policy>
+    <policy name="ContentAnalysis_AllowUrlRegexList" class="Both" displayName="$(string.ContentAnalysis_AllowUrlRegexList)" explainText="$(string.ContentAnalysis_AllowUrlRegexList_Explain)" key="Software\Policies\Mozilla\Firefox\ContentAnalysis" presentation="$(presentation.String)">
+      <parentCategory ref="ContentAnalysis"/>
+      <supportedOn ref="SUPPORTED_FF136_ONLY"/>
+      <elements>
+        <text id="String" valueName="AllowUrlRegexList"/>
+      </elements>
+    </policy>
+    <policy name="ContentAnalysis_BypassForSameTabOperations" class="Both" displayName="$(string.ContentAnalysis_BypassForSameTabOperations)" explainText="$(string.ContentAnalysis_BypassForSameTabOperations_Explain)" key="Software\Policies\Mozilla\Firefox\ContentAnalysis" valueName="BypassForSameTabOperations">
+      <parentCategory ref="ContentAnalysis"/>
+      <supportedOn ref="SUPPORTED_FF136_ONLY"/>
+      <enabledValue>
+        <decimal value="1"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0"/>
+      </disabledValue>
+    </policy>
+    <policy name="ContentAnalysis_ClientSignature" class="Both" displayName="$(string.ContentAnalysis_ClientSignature)" explainText="$(string.ContentAnalysis_ClientSignature_Explain)" key="Software\Policies\Mozilla\Firefox\ContentAnalysis" presentation="$(presentation.String)">
+      <parentCategory ref="ContentAnalysis"/>
+      <supportedOn ref="SUPPORTED_FF136_ONLY"/>
+      <elements>
+        <text id="String" valueName="ClientSignature"/>
+      </elements>
+    </policy>
+    <policy name="ContentAnalysis_DefaultResult" class="Both" displayName="$(string.ContentAnalysis_DefaultResult)" explainText="$(string.ContentAnalysis_DefaultResult_Explain)" key="Software\Policies\Mozilla\Firefox\ContentAnalysis" presentation="$(presentation.ContentAnalysis_DefaultResult)">
+      <parentCategory ref="ContentAnalysis"/>
+      <supportedOn ref="SUPPORTED_FF136_ONLY"/>
+      <elements>
+        <enum id="ContentAnalysis_DefaultResult" valueName="DefaultResult">
+          <item displayName="$(string.ContentAnalysis_DefaultResult_0)">
+            <value>
+              <decimal value="0"/>
+            </value>
+          </item>
+          <item displayName="$(string.ContentAnalysis_DefaultResult_1)">
+            <value>
+              <decimal value="1"/>
+            </value>
+          </item>
+          <item displayName="$(string.ContentAnalysis_DefaultResult_2)">
+            <value>
+              <decimal value="2"/>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="ContentAnalysis_DenyUrlRegexList" class="Both" displayName="$(string.ContentAnalysis_DenyUrlRegexList)" explainText="$(string.ContentAnalysis_DenyUrlRegexList_Explain)" key="Software\Policies\Mozilla\Firefox\ContentAnalysis" presentation="$(presentation.String)">
+      <parentCategory ref="ContentAnalysis"/>
+      <supportedOn ref="SUPPORTED_FF136_ONLY"/>
+      <elements>
+        <text id="String" valueName="DenyUrlRegexList"/>
+      </elements>
+    </policy>
+    <policy name="ContentAnalysis_Enabled" class="Both" displayName="$(string.ContentAnalysis_Enabled)" explainText="$(string.ContentAnalysis_Enabled_Explain)" key="Software\Policies\Mozilla\Firefox\ContentAnalysis" valueName="Enabled">
+      <parentCategory ref="ContentAnalysis"/>
+      <supportedOn ref="SUPPORTED_FF136_ONLY"/>
+      <enabledValue>
+        <decimal value="1"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0"/>
+      </disabledValue>
+    </policy>
+    <policy name="ContentAnalysis_IsPerUser" class="Both" displayName="$(string.ContentAnalysis_IsPerUser)" explainText="$(string.ContentAnalysis_IsPerUser_Explain)" key="Software\Policies\Mozilla\Firefox\ContentAnalysis" valueName="IsPerUser">
+      <parentCategory ref="ContentAnalysis"/>
+      <supportedOn ref="SUPPORTED_FF136_ONLY"/>
+      <enabledValue>
+        <decimal value="1"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0"/>
+      </disabledValue>
+    </policy>
+    <policy name="ContentAnalysis_PipePathName" class="Both" displayName="$(string.ContentAnalysis_PipePathName)" explainText="$(string.ContentAnalysis_PipePathName_Explain)" key="Software\Policies\Mozilla\Firefox\ContentAnalysis" presentation="$(presentation.String)">
+      <parentCategory ref="ContentAnalysis"/>
+      <supportedOn ref="SUPPORTED_FF136_ONLY"/>
+      <elements>
+        <text id="String" valueName="PipePathName"/>
+      </elements>
+    </policy>
+    <policy name="ContentAnalysis_ShowBlockedResult" class="Both" displayName="$(string.ContentAnalysis_ShowBlockedResult)" explainText="$(string.ContentAnalysis_ShowBlockedResult_Explain)" key="Software\Policies\Mozilla\Firefox\ContentAnalysis" valueName="ShowBlockedResult">
+      <parentCategory ref="ContentAnalysis"/>
+      <supportedOn ref="SUPPORTED_FF136_ONLY"/>
       <enabledValue>
         <decimal value="1"/>
       </enabledValue>

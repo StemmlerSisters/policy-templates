@@ -187,6 +187,8 @@
 	</dict>
 	<key>DisableDeveloperTools</key>
 	<true/>
+	<key>DisableEncryptedClientHello</key>
+	<true/>
 	<key>DisableFeedbackCommands</key>
 	<true/>
 	<key>DisableFirefoxAccounts</key>
@@ -401,6 +403,13 @@
 		<key>StartPage</key>
 		<string>homepage</string>
 	</dict>
+	<key>HttpAllowlist</key>
+	<array>
+		<string>http://example.org</string>
+		<string>http://example.edu</string>
+	</array>
+	<key>HttpsOnlyMode</key>
+	<string>disallowed</string>
 	<key>InstallAddonsPermission</key>
 	<dict>
 		<key>Allow</key>
@@ -417,6 +426,8 @@
 		<string>http://example.edu</string>
 	</array>
 	<key>PrimaryPassword</key>
+	<true/>
+	<key>MicrosoftEntraSSO</key>
 	<true/>
 	<key>NetworkPrediction</key>
 	<false/>
@@ -558,6 +569,8 @@
 		<key>Locked</key>
 		<true/>
 	</dict>
+	<key>PostQuantumKeyAgreementEnabled</key>
+	<false/>
 	<key>Preferences</key>
 	<dict>
 		<key>accessibility.force_disabled</key>
@@ -584,6 +597,8 @@
 	</dict>
 	<key>PrintingEnabled</key>
 	<false/>
+	<key>PrivateBrowsingModeAvailability</key>
+	<integer>1</integer>
 	<key>Proxy</key>
 	<dict>
 		<key>Mode</key>
@@ -601,7 +616,7 @@
 		<key>SocksVersion</key>
 		<string>4</string>
 		<key>Passthrough</key>
-		<string>&lt;local&rt;</string>
+		<string>&lt;local&gt;</string>
 		<key>AutoConfigURL</key>
 		<string>URL_TO_AUTOCONFIG</string>
 		<key>AutoLogin</key>
@@ -617,40 +632,22 @@
 		<string>en-US</string>
 	</array>
 	<key>SanitizeOnShutdown</key>
-	<true/>
-	<key>SearchBar</key>
-	<string>separate</string>
-	<key>UserMessaging</key>
 	<dict>
-		<key>WhatsNew</key>
-		<false/>
-		<key>ExtensionRecommendations</key>
-		<false/>
-		<key>FeatureRecommendations</key>
-		<false/>
-		<key>UrlbarInterventions</key>
-		<false/>
-		<key>SkipOnboarding</key>
+		<key>Cache</key>
 		<true/>
-		<key>MoreFromMozilla</key>
+		<key>Cookies</key>
+		<true/>
+		<key>History</key>
+		<true/>
+		<key>Sessions</key>
+		<true/>
+		<key>SiteSettings</key>
 		<true/>
 		<key>Locked</key>
 		<true/>
 	</dict>
-	<key>UseSystemPrintDialog</key>
-	<true/>
-	<key>WebsiteFilter</key>
-	<dict>
-		<key>Block</key>
-		<array>
-			<string>&lt;all_urls&gt;</string>
-		</array>
-		<key>Exceptions</key>
-		<array>
-			<string>https://www.google.com/*</string>
-			<string>https://www.yahoo.com/*</string>
-		</array>
-	</dict>
+	<key>SearchBar</key>
+	<string>separate</string>
 	<key>SecurityDevices</key>
 	<dict>
 		<key>NAME_OF_DEVICE</key>
@@ -672,6 +669,39 @@
 		<string>http://example.edu/</string>
 		<key>AccessKey</key>
 		<string>C</string>
+	</dict>
+	<key>TranslateEnabled</key>
+	<true/>
+	<key>UserMessaging</key>
+	<dict>
+		<key>ExtensionRecommendations</key>
+		<false/>
+		<key>FeatureRecommendations</key>
+		<false/>
+		<key>UrlbarInterventions</key>
+		<false/>
+		<key>SkipOnboarding</key>
+		<true/>
+		<key>MoreFromMozilla</key>
+		<true/>
+		<key>FirefoxLabs</key>
+		<true/>
+		<key>Locked</key>
+		<true/>
+	</dict>
+	<key>UseSystemPrintDialog</key>
+	<true/>
+	<key>WebsiteFilter</key>
+	<dict>
+		<key>Block</key>
+		<array>
+			<string>&lt;all_urls&gt;</string>
+		</array>
+		<key>Exceptions</key>
+		<array>
+			<string>https://www.google.com/*</string>
+			<string>https://www.yahoo.com/*</string>
+		</array>
 	</dict>
 </dict>
 </plist>
